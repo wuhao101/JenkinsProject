@@ -25,9 +25,8 @@
     <configuration>
         <reportDir>${project.build.directory}/jmeter-reports</reportDir>
         <propertiesUser>
-            <serverName>api04.shopping25.easynet.de</serverName>
-            <serverPort>7080</serverPort>
-            <basePath>/v3</basePath>
+            <loopCount>${ourloop}</loopCount>
+	    <serverName>${ourserver}</serverName>         
         </propertiesUser>
     </configuration>
     <dependencies>
@@ -41,4 +40,4 @@
 </plugin>
         </plugins>
     </build>
-</project>i
+</project>
