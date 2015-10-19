@@ -12,7 +12,7 @@
         Example how to integrate jmeter tests in a maven build and how to automatically
         generate graphs from the test results using the jmeter plugins CMDRunner.
     </description>
-
+    
     <build>
         <plugins>
             <plugin>
@@ -20,6 +20,9 @@
                 <artifactId>jmeter-maven-plugin</artifactId>
                 <version>1.4.1</version>
                 <configuration>
+                    <testResultsTimestamp>false</testResultsTimestamp>
+                    <overrideRootLogLevel>DEBUG</overrideRootLogLevel>
+                    <suppressJMeterOutput>false</suppressJMeterOutput>
                     <propertiesUser>
                         <loopCount>${ourloop}</loopCount>
                         <serverName>${ourserver}</serverName>
@@ -59,25 +62,25 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <inputFile>${project.build.directory}/jmeter/report/first_test_plan-151019.jtl</inputFile>
+                    <inputFile>${project.build.directory}/jmeter/report/first_test_plan.jtl</inputFile>
                     <graphs>
                         <graph>
                             <pluginType>ThreadsStateOverTime</pluginType>
                             <width>1000</width>
                             <height>600</height>
-                            <outputFile>${project.build.directory}/jmeter/report/first_test_plan-151019-ThreadsStateOverTime.png</outputFile>
+                            <outputFile>${project.build.directory}/jmeter/report/first_test_plan-ThreadsStateOverTime.png</outputFile>
                         </graph>
                         <graph>
                             <pluginType>ResponseTimesOverTime</pluginType>
                             <width>1000</width>
                             <height>600</height>
-                            <outputFile>${project.build.directory}/jmeter/report/first_test_plan-151019-ResponseTimesOverTime.png</outputFile>
+                            <outputFile>${project.build.directory}/jmeter/report/first_test_plan-ResponseTimesOverTime.png</outputFile>
                         </graph>
                         <graph>
                             <pluginType>TransactionsPerSecond</pluginType>
                             <width>1000</width>
                             <height>600</height>
-                            <outputFile>${project.build.directory}/jmeter/report/first_test_plan-151019-TransactionsPerSecond.png</outputFile>
+                            <outputFile>${project.build.directory}/jmeter/report/first_test_plan-TransactionsPerSecond.png</outputFile>
                         </graph>
                     </graphs>
                 </configuration>
